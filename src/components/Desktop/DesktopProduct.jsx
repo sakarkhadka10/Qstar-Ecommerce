@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import productContext from "../../context/ProductContext";
 import { FaStar } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const DesktopProduct = () => {
   const context = useContext(productContext);
@@ -9,6 +10,9 @@ const DesktopProduct = () => {
     dispatch,
     product,
   } = context;
+
+  const notifyAddCart = () => toast.success("Added To Cart");
+  const notifyRemoveCart = () => toast.error("Removed From Cart");
   return (
     <>
       <div className="mb-14 grid grid-cols-4 gap-5 px-6 py-5">
@@ -53,10 +57,11 @@ const DesktopProduct = () => {
                       <button
                         className="text-white bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer "
                         onClick={() => {
-                          dispatch({
-                            type: "REMOVE_FROM_CART",
-                            payload: item,
-                          });
+                          notifyRemoveCart(),
+                            dispatch({
+                              type: "REMOVE_FROM_CART",
+                              payload: item,
+                            });
                         }}
                       >
                         Remove From Cart
@@ -65,10 +70,11 @@ const DesktopProduct = () => {
                       <button
                         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
                         onClick={() => {
-                          dispatch({
-                            type: "ADD_TO_CART",
-                            payload: item,
-                          });
+                          notifyAddCart(),
+                            dispatch({
+                              type: "ADD_TO_CART",
+                              payload: item,
+                            });
                         }}
                       >
                         Add to cart

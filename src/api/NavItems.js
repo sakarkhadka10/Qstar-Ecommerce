@@ -5,8 +5,7 @@ import CartButton from "../components/elements/CartButton";
 export const navItems = [
   { _id: 1, name: "Home", link: "/" },
   { _id: 2, name: "Products", link: "/products" },
-  { _id: 3, name: "Carts", link: "/desktop-cart" },
-  { _id: 4, name: "Account", link: "/desktop-account" },
+  { _id: 3, name: "Account", link: "/desktop-account" },
 ];
 
 export const mobileNavItems = [
