@@ -15,7 +15,7 @@ const DesktopProduct = () => {
   const notifyRemoveCart = () => toast.error("Removed From Cart");
   return (
     <>
-      <div className="mb-14 grid grid-cols-4 gap-5 px-6 py-5">
+      <div className="mb-14 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-6 py-5">
         {product.map((item) => {
           return (
             <div key={item._id} className="grid">

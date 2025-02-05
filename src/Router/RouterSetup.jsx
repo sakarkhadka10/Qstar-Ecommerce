@@ -9,6 +9,8 @@ import DesktopCart from "../components/Desktop/DesktopCart";
 import DesktopAccount from "../components/Desktop/DesktopAccount";
 import ProductState from "../context/ProductState";
 import ProductPage from "../components/Page/ProductPage";
+import DesktopNav from "../components/Desktop/DesktopNav";
+import MainCart from "../components/Page/MainCart";
 
 const RouterSetup = () => {
   return (
@@ -16,15 +18,15 @@ const RouterSetup = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/cart" element={<MainCart />} />
 
         {/* Routers For Web Devices */}
         <Route path="/desktop-home" element={<DesktopHome />} />
-        <Route path="/desktop-cart" element={<DesktopCart />} />
         <Route path="/desktop-account" element={<DesktopAccount />} />
+        <Route path="/desktop-nav" element={<DesktopNav />} />
 
         {/* Routers For Mobile Devices */}
         <Route path="/mobile-home" element={<MobileHome />} />
-        <Route path="/mobile-cart" element={<MobileCart />} />
         <Route path="/mobile-account" element={<MobileAccount />} />
       </Routes>
     </ProductState>

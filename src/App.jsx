@@ -1,19 +1,17 @@
 import { Slide, ToastContainer } from "react-toastify";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import RouterSetup from "./Router/RouterSetup";
 import { BrowserRouter } from "react-router-dom";
+import DesktopNav from "./components/Desktop/DesktopNav";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="hidden md:block">
-          <NavBar />
-        </div>
+        <div className="hidden md:block">{/* <DesktopNav /> */}</div>
         <ToastContainer
-          position="top-right"
-          autoClose={3000}
+          position="bottom-left"
+          autoClose={1000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick={false}
