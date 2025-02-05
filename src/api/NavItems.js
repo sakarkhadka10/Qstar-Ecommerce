@@ -1,4 +1,4 @@
-import { FaHouse, FaBarsStaggered, FaCartShopping } from "react-icons/fa6";
+import { FaHouse, FaBarsStaggered } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import CartButton from "../components/elements/CartButton";
 
