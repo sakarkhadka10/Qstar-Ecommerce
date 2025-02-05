@@ -8,12 +8,14 @@ import DesktopHome from "../components/Desktop/DesktopHome";
 import DesktopCart from "../components/Desktop/DesktopCart";
 import DesktopAccount from "../components/Desktop/DesktopAccount";
 import ProductState from "../context/ProductState";
+import ProductPage from "../components/Page/ProductPage";
 
 const RouterSetup = () => {
   return (
     <ProductState>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductPage />} />
 
         {/* Routers For Web Devices */}
         <Route path="/desktop-home" element={<DesktopHome />} />

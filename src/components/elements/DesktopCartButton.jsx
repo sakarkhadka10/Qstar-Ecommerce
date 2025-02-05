@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import productContext from "../../context/ProductContext";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import productContext from "../../context/ProductContext";
 
-const CartButton = () => {
+const DesktopCartButton = () => {
   const context = useContext(productContext);
   const {
     state: { cart },
@@ -10,16 +11,16 @@ const CartButton = () => {
 
   return (
     <div className="relative">
-      <div className="flex items-center p-2">
-        <FaShoppingCart className="w-6 h-6" />
-        {cart.length > 0 && (
+      <Link to="/mobile-cart">
+        <button className="p-2">
+          <FaShoppingCart className="w-6 h-6" />
           <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
             {cart.length}
           </span>
-        )}
-      </div>
+        </button>
+      </Link>
     </div>
   );
 };
 
-export default CartButton;
+export default DesktopCartButton;

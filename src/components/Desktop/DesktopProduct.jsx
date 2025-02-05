@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import productContext from "../../context/ProductContext";
 import { FaStar } from "react-icons/fa6";
 
-const MobileProduct = () => {
+const DesktopProduct = () => {
   const context = useContext(productContext);
   const {
     state: { cart },
@@ -11,25 +11,25 @@ const MobileProduct = () => {
   } = context;
   return (
     <>
-      <div className="mb-14">
+      <div className="mb-14 grid grid-cols-4 gap-5 px-6 py-5">
         {product.map((item) => {
           return (
-            <div key={item._id} className="grid ">
-              <div className="w-full max-w-sm bg-white border border-gray-200 rounded-2xl shadow-sm mb-3 dark:bg-white ">
+            <div key={item._id} className="grid">
+              <div className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm mb-3 dark:bg-white ">
                 <img
-                  className="p-8 rounded-t-lg"
+                  className="p-5 rounded-md w-80 h-64"
                   src={item.image}
                   alt={item.name}
                 />
 
-                <div className="px-5 pb-5">
+                <div className="px-3 pb-3">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 ">
                     {item.name}
                   </h5>
 
-                  <div className="flex items-center mt-2.5 mb-5">
+                  <div className="flex items-center mt-2.5 mb-5 gap-2">
                     <div className="flex">
-                      {[...Array(5)].map((_,index) => (
+                      {[...Array(5)].map((_, index) => (
                         <FaStar
                           size={20}
                           key={index}
@@ -51,7 +51,7 @@ const MobileProduct = () => {
                     </span>
                     {cart && cart.some((p) => p._id === item._id) ? (
                       <button
-                        className="text-white bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                        className="text-white bg-pink-500 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer "
                         onClick={() => {
                           dispatch({
                             type: "REMOVE_FROM_CART",
@@ -63,7 +63,7 @@ const MobileProduct = () => {
                       </button>
                     ) : (
                       <button
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer"
                         onClick={() => {
                           dispatch({
                             type: "ADD_TO_CART",
@@ -85,4 +85,4 @@ const MobileProduct = () => {
   );
 };
 
-export default MobileProduct;
+export default DesktopProduct;

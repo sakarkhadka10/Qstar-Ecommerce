@@ -1,10 +1,14 @@
 import React from "react";
+import DesktopHero from "../elements/DesktopHero";
+import DesktopProduct from "./DesktopProduct";
 
 const DesktopHome = () => {
   return (
     <div>
       <div className="hidden md:block">
-        <h1>Desktop Home</h1>
+        <DesktopHero />
+        <hr />
+        <DesktopProduct />
       </div>
     </div>
   );
