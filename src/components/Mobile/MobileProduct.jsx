@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import productContext from "../../context/ProductContext";
 import { FaStar } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const MobileProduct = () => {
   const context = useContext(productContext);
@@ -9,6 +10,8 @@ const MobileProduct = () => {
     dispatch,
     product,
   } = context;
+  const notifyAdd = () => toast("Hello World");
+  const notifyAddCart = () => toast.success("Added To Cart");
   return (
     <>
       <div className="mb-14">
@@ -29,7 +32,7 @@ const MobileProduct = () => {
 
                   <div className="flex items-center mt-2.5 mb-5">
                     <div className="flex">
-                      {[...Array(5)].map((_,index) => (
+                      {[...Array(5)].map((_, index) => (
                         <FaStar
                           size={20}
                           key={index}
@@ -57,6 +60,7 @@ const MobileProduct = () => {
                             type: "REMOVE_FROM_CART",
                             payload: item,
                           });
+                          notifyAdd();
                         }}
                       >
                         Remove From Cart
@@ -69,6 +73,7 @@ const MobileProduct = () => {
                             type: "ADD_TO_CART",
                             payload: item,
                           });
+                          notifyAddCart();
                         }}
                       >
                         Add to cart
